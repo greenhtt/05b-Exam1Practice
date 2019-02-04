@@ -3,8 +3,8 @@ PRACTICE Exam 1, problem 3.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Valerie Galluzzi, Mark Hays, Amanda Stouder, Aaron Wilkin,
-         their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues, and Tierney Greenhoe.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -98,6 +98,20 @@ def run_test_problem3a():
 
     window3.close_on_mouse_click()
 
+    # Window 4:
+    title = 'Problem 3a. Test 5: Start at (50, 60), 15 lines'
+    window4 = rg.RoseWindow(450, 300, title)
+
+    # Test 5:
+    point = rg.Point(50, 60)
+    expected = 
+    answer = problem3a(window4, point, 15)
+    print()
+    print('Test 4 expected:', expected)
+    print('       actual:  ', answer)
+
+
+
     # -------------------------------------------------------------------------
     # TO DO: 2 (continued).
     # Below this comment (or integrated with one of the above tests,
@@ -106,6 +120,7 @@ def run_test_problem3a():
 
 
 def problem3a(window, point, n):
+
     """
     See   problem3a_picture.pdf   in this project for pictures
     that may help you better understand the following specification:

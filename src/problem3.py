@@ -104,7 +104,7 @@ def run_test_problem3a():
 
     # Test 5:
     point = rg.Point(50, 60)
-    expected = 
+    expected = 0
     answer = problem3a(window4, point, 15)
     print()
     print('Test 4 expected:', expected)

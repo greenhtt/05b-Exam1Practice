@@ -36,9 +36,10 @@ def main():
 
 
 def run_test_problem3a():
+
     """ Tests the   problem3a   function. """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  problem1a  function defined below.
     #   Include at least **   5   ** tests (we wrote four for you).
     # -------------------------------------------------------------------------
@@ -104,10 +105,10 @@ def run_test_problem3a():
 
     # Test 5:
     point = rg.Point(50, 60)
-    expected = 0
+    expected = 153
     answer = problem3a(window4, point, 15)
     print()
-    print('Test 4 expected:', expected)
+    print('Test 5 expected:', expected)
     print('       actual:  ', answer)
 
 
@@ -120,6 +121,23 @@ def run_test_problem3a():
 
 
 def problem3a(window, point, n):
+    thickness = 1
+    sum_of_thicknesses = thickness
+    for k in range(n):
+        line = rg.Line(point, rg.Point(point.x, point.y + 50))
+        line.thickness = thickness
+        line.attach_to(window)
+
+        point.x += 20
+        point.y += 10
+        thickness += 2
+        if thickness > 13:
+            thickness = 13
+        sum_of_thicknesses += thickness
+    sum_of_thicknesses -= thickness
+    window.render()
+    return sum_of_thicknesses
+
 
     """
     See   problem3a_picture.pdf   in this project for pictures
@@ -153,7 +171,7 @@ def problem3a(window, point, n):
         :type n:      int
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
@@ -217,7 +235,7 @@ def problem3b(m, point1):
         :type point1: rg.Point
     """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ###########################################################################
@@ -230,6 +248,18 @@ def problem3b(m, point1):
     #    DIFFICULTY:      8 or 9
     #    TIME ESTIMATE:   20 to 30 minutes.
     # -------------------------------------------------------------------------
+    sum_of_thicknesses = 0
+    number_of_lines = 3
+    window = rg.RoseWindow(400, 650)
+    for k in range(m):
+        current_sum = problem3a(window, point1, number_of_lines)
+        sum_of_thicknesses += current_sum
+
+        number_of_lines += 2
+        point1.y += 60
+    window.close_on_mouse_click()
+    return sum_of_thicknesses
+
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.

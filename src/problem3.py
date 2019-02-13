@@ -250,13 +250,17 @@ def problem3b(m, point1):
     # -------------------------------------------------------------------------
     sum_of_thicknesses = 0
     number_of_lines = 3
+    new_point = point1
     window = rg.RoseWindow(400, 650)
     for k in range(m):
+        point1.y += (10 * m)
+        point1.x -= new_point.x
+
         current_sum = problem3a(window, point1, number_of_lines)
         sum_of_thicknesses += current_sum
 
         number_of_lines += 2
-        point1.y += 60
+
     window.close_on_mouse_click()
     return sum_of_thicknesses
 

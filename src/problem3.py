@@ -119,10 +119,10 @@ def run_test_problem3a():
     # your choice), add 1 more test case of your own choosing.
     # -------------------------------------------------------------------------
 
-
 def problem3a(window, point, n):
     thickness = 1
     sum_of_thicknesses = thickness
+    original_point = point
     for k in range(n):
         line = rg.Line(point, rg.Point(point.x, point.y + 50))
         line.thickness = thickness
@@ -135,8 +135,9 @@ def problem3a(window, point, n):
             thickness = 13
         sum_of_thicknesses += thickness
     sum_of_thicknesses -= thickness
+    point = original_point
     window.render()
-    return sum_of_thicknesses
+    return point, sum_of_thicknesses
 
 
     """
@@ -250,16 +251,15 @@ def problem3b(m, point1):
     # -------------------------------------------------------------------------
     sum_of_thicknesses = 0
     number_of_lines = 3
-    new_point = point1
     window = rg.RoseWindow(400, 650)
     for k in range(m):
-        point1.y += (10 * m)
-        point1.x -= new_point.x
-
-        current_sum = problem3a(window, point1, number_of_lines)
+        point1, current_sum = problem3a(window, point1, number_of_lines)
         sum_of_thicknesses += current_sum
 
+        point1.x -= (number_of_lines * 20)
         number_of_lines += 2
+
+        point1.y += 50 - (8 * (number_of_lines - 2))
 
     window.close_on_mouse_click()
     return sum_of_thicknesses
